@@ -1,0 +1,3 @@
+[submodule "ValpoAPI"]
+	path = ValpoAPI
+	url = https://github.com/N8Daawg/ValpoRoboticsAPI

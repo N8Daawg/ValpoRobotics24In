@@ -27,6 +27,8 @@ competition Competition;
 /*---------------------------------------------------------------------------*/
 
 void pre_auton(void) {
+  // Initializing Robot Configuration. DO NOT REMOVE!
+  vexcodeInit();
 
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
@@ -59,16 +61,27 @@ void autonomous(void) {
 /*---------------------------------------------------------------------------*/
 
 void usercontrol(void) {
+
+  int speedLimit = 25;
+
+  double LNS; double LEW;
+  double RNS; double REW;
   // User control code here, inside the loop
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
 
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
+    if (Controller.Axis3.position() > speedLimit){LNS = speedLimit;}else{LNS = Controller.Axis3.position();}
+    if (Controller.Axis4.position() > speedLimit){LEW = speedLimit;}else{LEW = Controller.Axis4.position();}
+    if (Controller.Axis2.position() > speedLimit){RNS = speedLimit;}else{RNS = Controller.Axis2.position();}
+    if (Controller.Axis1.position() > speedLimit){REW = speedLimit;}else{REW = Controller.Axis1.position();}
+    
+    robot.drive(LNS,LEW,RNS,REW);
+
+    if(Controller.ButtonUp.pressing()){
+      robot.switchControlMode();
+    }
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.

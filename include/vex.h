@@ -6,6 +6,10 @@
 #include "v5.h"
 #include "v5_vcs.h"
 
+#include "../ValpoAPI/include/api.h"
+#include "robot-config.h"
+#include "autons.h"
+
 
 #define waitUntil(condition)                                                   \
   do {                                                                         \

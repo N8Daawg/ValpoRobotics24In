@@ -7,9 +7,6 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-#ifndef AUTONS_H
-#define AUTONS_H
-
 extern double tileLength; //inches
 
 /**
@@ -26,6 +23,3 @@ void match();
  * @brief void containing autonomous skills code for the 24" robot
 */
 void skills();
-
-
-#endif
